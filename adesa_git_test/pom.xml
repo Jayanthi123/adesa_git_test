@@ -28,6 +28,11 @@
                     <copyToAppsDirectory>true</copyToAppsDirectory>
 				</configuration>
 			</plugin>
+			<plugin>		
+	  <groupId>org.mule.tools.maven</groupId>		
+	  <artifactId>mule-maven-plugin</artifactId>		
+	  <version>2.2.1</version>		
+	</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
@@ -55,6 +60,52 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>		
+	    <groupId>org.mule.tools.maven</groupId>		
+	    <artifactId>mule-maven-plugin</artifactId>		
+	    <version>2.2.1</version>		
+	    <configuration>		
+	        <deploymentType>arm</deploymentType>		
+	        <username>anjana3194</username>		
+        <password>Anjuchiku@66</password>		
+	        <target>server1</target>		
+	        <targetType>server</targetType>		
+	        <environment>sandbox</environment>		
+	    </configuration>		
+	    <executions>		
+	        <execution>		
+	            <id>deploy</id>		
+	            <phase>deploy</phase>		
+	            <goals>		
+	                <goal>deploy</goal>		
+	            </goals>		
+	        </execution>		
+	    </executions>		
+	</plugin> -->		
+		<plugin>		
+	              <groupId>org.mule.tools.maven</groupId>		
+	              <artifactId>mule-maven-plugin</artifactId>		
+	              <version>2.0</version>		
+	              <configuration>		
+	                 <deploymentType>cloudhub</deploymentType>		
+	                 <muleVersion>${mule.version}</muleVersion>		
+	                 <username>raviteja0422_sep</username>		
+	                 <password>Rpedada1</password>		
+	                 <workerType>Micro</workerType>		
+	                 <redeploy>true</redeploy>		
+	                 <environment>Sandbox</environment>		
+			  <applicationName>gitproject</applicationName>		
+	              </configuration>		
+	              <executions>		
+	                 <execution>		
+	                    <id>deploy</id>		
+	                    <phase>deploy</phase>		
+	                    <goals>		
+	                       <goal>deploy</goal>		
+	                    </goals>		
+	                 </execution>		
+	              </executions>		
+           </plugin>
 		</plugins>
 	</build>
 
@@ -125,9 +176,11 @@
 			<version>${mule.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
 	</dependencies>
 
 	<repositories>
+		
           <repository>
             <id>Central</id>
             <name>Central</name>
@@ -151,6 +204,10 @@
                 <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
+	    <pluginRepository>		
+	        <id>mule-public</id>		
+	        <url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>		
+	    </pluginRepository>
     </pluginRepositories>
 
 </project>
